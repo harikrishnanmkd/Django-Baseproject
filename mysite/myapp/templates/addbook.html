@@ -1,0 +1,9 @@
+<body style="background-color: burlywood;">
+<form method="post" style="background-color:red; width:200px">
+    {%csrf_token%}
+    {{ab.as_p}}
+<input type="submit" value="Add Book">
+<button><a href="{% url 'viewbook' %}" style="text-decoration: none;color: black;">View Book</a></button>
+
+</form>
+</body>

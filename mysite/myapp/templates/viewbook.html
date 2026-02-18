@@ -13,6 +13,18 @@
             border-color: green;
             border-collapse: collapse;
         }
+      
+        button{
+            background-color: red;
+        }
+        button a{
+            text-decoration: none;
+            color: white;
+
+            
+        }
+   
+        
     </style>
 </head>
 <body>
@@ -37,6 +49,8 @@
             {% endfor %}
         </table>
         <button><a href="{% url 'home' %}">Go To Home</a></button>
+        <button><a href="{% url 'addbook' %}">Add Book</a></button>
+
     </center>
     
 </body>
