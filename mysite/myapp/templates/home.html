@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    button{
+            background-color: blue;
+        }
+        button a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <h1 style="text-align: center;background-color: yellow;color:blue">Welcome To My Page</h1>
+    <!-- <p>{{Name}}  </p>
+    <p>{{Age}}</p>
+    <p>{{Place}}</p> -->
+
+    {% for i in a %}
+    <p style="font-weight: bold;color: red;">{{i}}</p>
+    {% endfor %}
+    <button><a href="{% url 'about' %}">Go To About</a></button>
+    <button><a href="{% url 'contact'%}">Go To Contact US</a></button>
+    <button><a href="{% url 'viewbook'%}">viewbook</a></button>
+
+  
+    
+</body>
+</html>

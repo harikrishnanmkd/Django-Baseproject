@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        table{
+            color: blue;
+            border-color: green;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 style="color: yellow;">BOOK DETAILS</h1>
+        <table border="5">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Publish Date</th>
+                <th>Description</th>
+            </tr>
+            {% for i in a %}
+            <tr>
+                <td>{{i.title}}</td>
+                <td>{{i.author}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.pub_date}}</td>
+                <td>{{i.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button><a href="{% url 'home' %}">Go To Home</a></button>
+    </center>
+    
+</body>
+</html>

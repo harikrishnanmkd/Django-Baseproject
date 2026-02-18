@@ -1,0 +1,10 @@
+#virtual env
+
+env/
+
+__pycache__
+
+myapp2
+
+
+
