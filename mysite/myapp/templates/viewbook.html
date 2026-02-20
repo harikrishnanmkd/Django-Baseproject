@@ -23,6 +23,10 @@
 
             
         }
+        a{
+            text-decoration: none;
+            color: white;
+        }
    
         
     </style>
@@ -32,19 +36,24 @@
         <h1 style="color: yellow;">BOOK DETAILS</h1>
         <table border="5">
             <tr>
+                <th>Id</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Price</th>
                 <th>Publish Date</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
             {% for i in a %}
             <tr>
+                <td>{{i.id}}</td>
                 <td>{{i.title}}</td>
                 <td>{{i.author}}</td>
                 <td>{{i.price}}</td>
                 <td>{{i.pub_date}}</td>
                 <td>{{i.description}}</td>
+                <td><a href="{% url 'updatebook' i.id %}">✎</a>
+                <a href="{% url 'deletebook' i.id %}">🗑</a></td>
             </tr>
             {% endfor %}
         </table>

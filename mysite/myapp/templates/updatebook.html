@@ -6,12 +6,13 @@
     <title>Document</title>
 </head>
 <body style="background-color: burlywood;">
+<center>
 <form method="post" style="background-color:red; width:200px">
     {%csrf_token%}
     {{ab.as_p}}
-<input type="submit" value="Add Book">
-<button><a href="{% url 'viewbook' %}" style="text-decoration: none;color: black;">View Book</a></button>
+<input type="submit" value="Update Book">
 </form>
+</center>
     
 </body>
 </html>
