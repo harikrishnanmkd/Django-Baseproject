@@ -9,8 +9,8 @@
             background-color: black;
         }
         table{
-            color: blue;
-            border-color: green;
+            color: beige;
+            border-color: rgb(105, 128, 0);
             border-collapse: collapse;
         }
       
@@ -53,7 +53,15 @@
                 <td>{{i.pub_date}}</td>
                 <td>{{i.description}}</td>
                 <td><a href="{% url 'updatebook' i.id %}">✎</a>
-                <a href="{% url 'deletebook' i.id %}">🗑</a></td>
+                <!-- <a href="{% url 'deletebook' i.id %}">🗑</a> -->
+                <form action="{% url 'deletebook' i.id %}" method="POST" style="display: inline;"
+                onsubmit="return confirm('Are you sure you want to delete this book?');">
+                {% csrf_token %}
+                <button type="submit" style="background:none; border:none; color:red;">
+                🗑 </button>
+                </form>
+            
+            </td>
             </tr>
             {% endfor %}
         </table>

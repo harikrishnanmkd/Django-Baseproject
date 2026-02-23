@@ -7,5 +7,6 @@ urlpatterns = [
     path("viewbook/",views.view_book, name="viewbook"),
     path("addbook/",views.add_book, name="addbook"),
     path("updatebook/<int:id>",views.update_book, name="updatebook"),
-    path("deletebook/<int:id>",views.delete_book, name="deletebook")
+    path("deletebook/<int:id>",views.delete_book, name="deletebook"),
+    path("register/",views.register, name="register"),
 ]
