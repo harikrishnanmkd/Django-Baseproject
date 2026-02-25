@@ -1,5 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+           font-weight: bold;
+        }
+        .form-control{
+            margin-left: 350px;
+            margin-right: 250px;
+            margin-top: 150px;
+            width:50%;
+            height: auto;
+            border: 5px solid whitesmoke;
+            background-color: transparent;
+            
+        }
+        .form{
+
+            background-color: whitesmoke;
+            border: 10px;
+        }
+      .password1{
+        background-color: green;
+      }
+
+    </style>
+</head>
+<body>
+<div class="form-control">
 <form method="POST">
     {%csrf_token%}
     {{form.as_p}}
+<center>
 <input type="submit" value="Register">
-</form>
+</center>
+</form> 
+</div>   
+</body
+</html>

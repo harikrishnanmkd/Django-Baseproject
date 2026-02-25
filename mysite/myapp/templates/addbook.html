@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body style="background-color: burlywood;">
-<form method="post" style="background-color:red; width:200px">
+<form method="post" enctype="multipart/form-data" style="background-color:red; width:200px">
     {%csrf_token%}
     {{ab.as_p}}
 <input type="submit" value="Add Book">

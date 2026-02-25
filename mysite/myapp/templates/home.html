@@ -12,21 +12,24 @@
             text-decoration: none;
             color: white;
         }
+        body{
+            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        }
     </style>
 </head>
-<body style="background-color: black;">
-    <h1 style="text-align: center;background-color: yellow;color:blue">Welcome To My Page</h1>
+<body>
+    <h1 style="text-align: center;color:blue">Welcome To My Page</h1>
     <!-- <p>{{Name}}  </p>
     <p>{{Age}}</p>
     <p>{{Place}}</p> -->
 
     {% for i in a %}
-    <p style="font-weight: bold;color: red;">{{i}}</p>
+    <p style="font-weight: bold;">{{i}}</p>
     {% endfor %}
-    <button><a href="{% url 'about' %}">Go To About</a></button>
-    <button><a href="{% url 'contact'%}">Go To Contact US</a></button>
-    <button><a href="{% url 'viewbook'%}">viewbook</a></button>
-    <button><a href="{% url 'register'%}">Register</a></button>
+    <button><a href="{% url 'viewbook'%}">viewbook</a></button><br>
+    <button><a href="{% url 'register'%}">Register</a></button><br>
+    <button><a href="{% url 'about' %}">Go To About</a></button><br>
+    <button><a href="{% url 'contact'%}">Go To Contact US</a></button><br>
 
   
     

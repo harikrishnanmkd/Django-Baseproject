@@ -29,7 +29,7 @@ def view_book(request):
     return render(request,"viewbook.html",{'a':data})
 
 def add_book(request):
-    data=BookForm(request.POST or None)
+    data=BookForm(request.POST or None,request.FILES or None)
     if data.is_valid():
         data.save()
         return redirect('viewbook')
@@ -37,7 +37,7 @@ def add_book(request):
 
 def update_book(request,id):
     book=Book.objects.get(id=id)
-    form=BookForm(request.POST or None,instance=book)
+    form=BookForm(request.POST or None,request.FILES or None,instance=book)
     if form.is_valid():
         form.save()
         return redirect('viewbook')
@@ -56,6 +56,7 @@ def register(request):
         form.save()
         return redirect("viewbook")
     return render(request,'register.html',{"form":form})
+
     
 
     

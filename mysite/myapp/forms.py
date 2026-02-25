@@ -7,10 +7,19 @@ from django.contrib.auth.forms import UserCreationForm
 class BookForm(forms.ModelForm):
     class Meta:
         model=Book
-        fields=['title','author','price','pub_date','description']
+        fields=['title','author','price','pub_date','description','cover_image']
         
 class UserRegistrationForm(UserCreationForm):
     class Meta:
         model=User
         fields=['username',"email","password1","password2"]
+        
+        widgets={
+            'username':forms.TextInput(attrs={'class':'form username-input'}),
+            'email':forms.EmailInput(attrs={'class':'form email-input'}),
+            'password1':forms.TextInput(attrs={'class':'form password1'}),
+            'password2':forms.PasswordInput(attrs={'class':'form password2'})
+        }
+    
+    
     
