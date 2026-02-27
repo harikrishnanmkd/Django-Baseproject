@@ -10,4 +10,7 @@ urlpatterns = [
     path("updatebook/<int:id>",views.update_book, name="updatebook"),
     path("deletebook/<int:id>",views.delete_book, name="deletebook"),
     path("register/",views.register, name="register"),
+    path("login/",views.login_form,name="login"),
+    path("logout/",views.logout_form,name="logout"),
+    
 ]

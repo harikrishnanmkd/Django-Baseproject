@@ -6,11 +6,10 @@
     <title>Document</title>
     <style>
         body{
-            background-color: black;
+          background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
         }
         table{
-            color: beige;
-            border-color: rgb(105, 128, 0);
+            color: black;
             border-collapse: collapse;
         }
       
@@ -75,6 +74,7 @@
         </table>
         <button><a href="{% url 'home' %}">Go To Home</a></button>
         <button><a href="{% url 'addbook' %}">Add Book</a></button>
+        <button><a href="{% url 'logout' %}">Log Out</a></button>
 
     </center>
     

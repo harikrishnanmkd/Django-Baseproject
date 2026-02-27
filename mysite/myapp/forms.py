@@ -1,7 +1,7 @@
 from django import forms
 from .models import Book
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class BookForm(forms.ModelForm):
@@ -20,6 +20,11 @@ class UserRegistrationForm(UserCreationForm):
             'password1':forms.TextInput(attrs={'class':'form password1'}),
             'password2':forms.PasswordInput(attrs={'class':'form password2'})
         }
+        
+class UserLoginForm(AuthenticationForm):
+    pass
+        
+        
     
     
     
