@@ -12,5 +12,8 @@ urlpatterns = [
     path("register/",views.register, name="register"),
     path("login/",views.login_form,name="login"),
     path("logout/",views.logout_form,name="logout"),
+    path("viewcart/",views.view_cart,name="viewcart"),
+    path("addcart/<int:book_id>",views.add_to_cart,name="addcart"),
+    
     
 ]

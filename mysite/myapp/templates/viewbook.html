@@ -6,11 +6,12 @@
     <title>Document</title>
     <style>
         body{
-          background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+          background: linear-gradient(90deg, #515ada 0%,#efd5ff 100%);
         }
         table{
-            color: black;
             border-collapse: collapse;
+
+        
         }
       
         button{
@@ -18,13 +19,13 @@
         }
         button a{
             text-decoration: none;
-            color: white;
+            color: black;
 
             
         }
         a{
             text-decoration: none;
-            color: white;
+            color: black;
         }
    
         
@@ -60,7 +61,7 @@
                     {% endif %}
                 </td>
                 <td><a href="{% url 'updatebook' i.id %}">✎</a>
-                <!-- <a href="{% url 'deletebook' i.id %}">🗑</a> -->
+                <a href="{% url 'addcart' i.id %}">🛍️</a>
                 <form action="{% url 'deletebook' i.id %}" method="POST" style="display: inline;"
                 onsubmit="return confirm('Are you sure you want to delete this book?');">
                 {% csrf_token %}
@@ -74,7 +75,9 @@
         </table>
         <button><a href="{% url 'home' %}">Go To Home</a></button>
         <button><a href="{% url 'addbook' %}">Add Book</a></button>
+        <button><a href="{% url 'viewcart' %}">Viewcart</a></button>
         <button><a href="{% url 'logout' %}">Log Out</a></button>
+
 
     </center>
     

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+        }
+        table{
+            margin-top: 150px;
+            border-collapse: collapse;
+
+        
+        }
+      
+        button{
+            background-color: green;
+        }
+        button a{
+            text-decoration: none;
+            color: white;
+
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+   
+        
+    </style>
+</head>
+<body>
+    <center>
+        <h1 style="color: black;">BOOK DETAILS</h1>
+        <table border="8">
+            <tr>
+                <th>Book</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                
+            </tr>
+            {% for i in cart %}
+            <tr>
+                <td>{{i.book.title}}</td>
+                <td>{{i.book.price}}</td>
+                <td>{{i.quantity}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td colspan="2">Total Price={{total_price}}</td>
+            </tr>
+        </table>
+        <button><a href="{% url 'viewbook' %}">View Book</a></button>
+
+
+
+    </center>
+    
+</body>
+</html>
