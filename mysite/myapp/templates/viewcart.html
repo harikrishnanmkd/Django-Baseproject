@@ -9,8 +9,10 @@
         background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
         }
         table{
-            margin-top: 150px;
+            margin-top: 120px;
             border-collapse: collapse;
+            width: 300px;
+            
 
         
         }
@@ -34,8 +36,8 @@
 </head>
 <body>
     <center>
-        <h1 style="color: black;">BOOK DETAILS</h1>
-        <table border="8">
+        <h1 style="color: blue;">MY CART</h1>
+        <table border="5">
             <tr>
                 <th>Book</th>
                 <th>Price</th>
@@ -47,14 +49,27 @@
                 <td>{{i.book.title}}</td>
                 <td>{{i.book.price}}</td>
                 <td>{{i.quantity}}</td>
+                <td><form action="{% url 'deletecart' i.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" style="background:none; border:none; color:red;">
+                🗑 </button>
+                </form></td>
             </tr>
             {% endfor %}
             <tr>
                 <td></td>
-                <td colspan="2">Total Price={{total_price}}</td>
+                <td colspan="3">Total Price={{total_price}}</td>
+                
             </tr>
-        </table>
+        </table><br><br>
         <button><a href="{% url 'viewbook' %}">View Book</a></button>
+        <form action="{% url 'clearcart' %}" method="POST" style="display: inline;"
+                onsubmit="return confirm('Are you sure you want to clear cart?');">
+                {% csrf_token %}
+                <button type="submit" style="background:red; color:white;">
+                 Clear Cart</button>
+                </form>
+
 
 
 
