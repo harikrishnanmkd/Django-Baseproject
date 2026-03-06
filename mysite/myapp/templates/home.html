@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block extra_css %}
+   
+   
     <style>
     button{
             background-color: blue;
@@ -16,8 +15,9 @@
             background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
         }
     </style>
-</head>
-<body>
+{% endblock %}  
+{% block content %}
+
     <h1 style="text-align: center;color:blue">Welcome To My Page</h1>
     <!-- <p>{{Name}}  </p>
     <p>{{Age}}</p>
@@ -30,7 +30,8 @@
     <button><a href="{% url 'register'%}">Register</a></button><br>
     <button><a href="{% url 'about' %}">Go To About</a></button><br>
     <button><a href="{% url 'contact'%}">Go To Contact US</a></button><br>
+{% endblock %}
+
+
   
-    
-</body>
-</html>
+ 
