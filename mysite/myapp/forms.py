@@ -8,6 +8,7 @@ class BookForm(forms.ModelForm):
     class Meta:
         model=Book
         fields=['title','author','price','pub_date','description','cover_image']
+        widgets = {'book_name': forms.TextInput(attrs={'class':'form-control'}),}
         
 class UserRegistrationForm(UserCreationForm):
     class Meta:
