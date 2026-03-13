@@ -21,7 +21,7 @@
     /* Table styling */
     table {
         border-collapse: collapse;
-        width: 90%;
+        width: 75%;
         margin: auto;
         background: transparent;
         color: black;
@@ -30,7 +30,7 @@
 
     /* Table header */
     th {
-        background-color: blue;
+        background-color:#4CAF50;
         color: white;
         padding: 12px;
         text-align: center;
@@ -47,7 +47,7 @@
 
     /* Row hover effect */
     tr:hover {
-        background-color: yellow;
+        background-color: white;
     }
 
     /* Book images */
@@ -129,6 +129,7 @@
                 <button type="submit" style="background:red; color:white;">
                  Clear Cart</button>
                 </form>
+        <a href="{% url 'buy-all' %}">  <button>Buy All</button></a>
         
 
 

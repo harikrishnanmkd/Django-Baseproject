@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order Success</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f3f6;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .icon {
+            font-size: 60px;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #212121;
+        }
+
+        p {
+            color: #555;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #2874f0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+
 </head>
+
 <body>
-    <h1>Order Placed</h1>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="icon">✔</div>
+
+            <h1>Order Placed Successfully!</h1>
+
+            <p>Your order has been confirmed and will be delivered soon.</p>
+
+            <a href="{% url 'viewbook' %}">
+                <button>Continue Shopping</button>
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>

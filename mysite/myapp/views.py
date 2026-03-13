@@ -72,13 +72,14 @@ def login_form(request):
     if request.method=='POST' and form.is_valid():
         user=form.get_user()
         login(request,user)
-        return redirect('home')
+        return redirect('viewbook')
     return render(request,'login.html',{"form":form})
 
 def logout_form(request):
     logout(request)
-    return redirect("login")
+    return redirect("home")
 
+@login_required
 def view_cart(request):
     cart_item=Cart.objects.filter(user=request.user)
     total_price=0
@@ -111,33 +112,82 @@ def clear_cart(request):
 
 
 def buy_now(request, book_id):
-    cart_items = get_object_or_404(Cart, user=request.user, id=book_id)
-    book=cart_items.book
+    cart_item = get_object_or_404(Cart, user=request.user, id=book_id)
+    book = cart_item.book
     
-    session=stripe.checkout.Session.create(
+    session = stripe.checkout.Session.create(
         payment_method_types=['card'],
-        line_items=[
-            {
-                'price_data':{
-                    'currency':'inr',
-                    'product_data':{
-                        'name':book.title,
-                    },
-                    'unit_amount': int (float(book.price) * 100),
+        line_items=[{
+            'price_data': {
+                'currency': 'inr',
+                'product_data': {
+                    'name': book.title,
                 },
-                'quantity':cart_items.quantity,
-            }
-        ],
+                'unit_amount': int(float(book.price) * 100),
+            },
+            'quantity': cart_item.quantity,
+        }],
         mode="payment",
-        success_url=request.build_absolute_uri(reverse('success')),
+
+        # ✅ send cart_id
+        success_url=request.build_absolute_uri(reverse('success')) + f"?cart_id={cart_item.id}",
+
         cancel_url=request.build_absolute_uri(reverse('viewcart')),
     )
     return redirect(session.url)
 
+
+
+def buy_all(request):
+    cart_items = Cart.objects.filter(user=request.user)
+
+    line_items = []
+
+    for item in cart_items:
+        book = item.book
+
+        line_items.append({
+            'price_data': {
+                'currency': 'inr',
+                'product_data': {
+                    'name': book.title,
+                },
+                'unit_amount': int(float(book.price) * 100),
+            },
+            'quantity': item.quantity,
+        })
+
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=line_items,
+        mode='payment',
+
+        # ✅ send flag
+        success_url=request.build_absolute_uri(reverse('success')) + "?buy_all=1",
+
+        cancel_url=request.build_absolute_uri(reverse('viewcart')),
+    )
+
+    return redirect(session.url)
+
 def payment_success(request):
-    return render(request,"success.html")
+
+    cart_id = request.GET.get("cart_id")
+    buy_all = request.GET.get("buy_all")
+
+    if cart_id:
+        # delete only that purchased item
+        Cart.objects.filter(id=cart_id, user=request.user).delete()
+
+    elif buy_all:
+        # delete entire cart
+        Cart.objects.filter(user=request.user).delete()
+
+    return render(request, "success.html")
+
 def payment_cancel(request):
     return render(request,"viewcart.html")
+
     
     
     

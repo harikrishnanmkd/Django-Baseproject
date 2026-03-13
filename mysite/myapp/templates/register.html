@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-           background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
-           font-weight: bold;
-        }
-        .form-control{
-            margin-left: 350px;
-            margin-right: 250px;
-            margin-top: 150px;
-            width:50%;
-            height: auto;
-            border: 5px solid whitesmoke;
-            background-color: transparent;
-            
-        }
-        .form{
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
 
-            background-color: whitesmoke;
-            border: 10px;
-        }
-      .password1{
-        background-color: green;
-      }
+<style>
 
-    </style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(120deg,#89f7fe,#66a6ff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.register-container{
+    background:white;
+    width:400px;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.register-container h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.register-container input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+.register-btn{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#4CAF50;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.register-btn:hover{
+    background:#43a047;
+}
+
+.login-link{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    text-decoration:none;
+    color:#555;
+}
+
+.login-link:hover{
+    color:#4CAF50;
+}
+
+</style>
 </head>
+
 <body>
-<div class="form-control">
-<form method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
-<center>
-<input type="submit" value="Register">
-</center>
-</form> 
-</div>   
-</body
+
+<div class="register-container">
+    <h2>Create Account</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Register" class="register-btn">
+
+        <a href="{% url 'login' %}" class="login-link">
+            Already have an account? Login
+        </a>
+    </form>
+</div>
+
+</body>
 </html>
