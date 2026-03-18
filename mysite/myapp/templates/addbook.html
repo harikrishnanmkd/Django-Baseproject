@@ -1,85 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
 {% block extra_css %}
-<style>
-
-body{
-    background: linear-gradient(to right,#e3f2fd,#ffffff);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.container{
-    width: 40%;
-    margin: 60px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-}
-
-h2{
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-}
-
-/* 🔥 INPUT FIELD DESIGN */
-form input[type="text"],
-form input[type="number"],
-form input[type="email"],
-form input[type="file"],
-form textarea,
-form select{
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 18px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-/* Focus Effect */
-form input:focus,
-form textarea:focus,
-form select:focus{
-    border-color: #007BFF;
-    outline: none;
-    box-shadow: 0px 0px 5px #007BFF;
-}
-
-/* Label Style */
-form label{
-    font-weight: bold;
-    color: #444;
-}
-
-/* Button */
-input[type="submit"]{
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-input[type="submit"]:hover{
-    background-color: #0056b3;
-}
-
-@media(max-width:768px){
-    .container{
-        width: 90%;
-    }
-}
-
-</style>
+<link rel="stylesheet" href="{% static 'css\addbook.css' %}">  
 {% endblock %}  
 <div class="container">
 <form method="post" enctype="multipart/form-data">
